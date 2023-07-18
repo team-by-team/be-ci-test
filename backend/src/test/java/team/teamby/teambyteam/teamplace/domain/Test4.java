@@ -16,6 +16,7 @@ public class Test4 {
         System.out.println("dddd");
 
         //then
+        System.out.println("ddd");
 
     }
 }
