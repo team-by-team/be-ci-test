@@ -9,11 +9,6 @@ public class Test {
     @org.junit.jupiter.api.Test
     @DisplayName("")
     void test() {
-        // given
-
-        // when
-
-        //then
         System.out.println("Wow good~~~");
         System.out.println("cool");
         System.out.println("언제 끝ㅈ날까아ㅏ....");
@@ -22,26 +17,20 @@ public class Test {
     @org.junit.jupiter.api.Test
     @DisplayName("")
     void wrong() {
-        // given
         final int num = 1;
 
-        // when
         assertThat(num).isEqualTo(2);
 
-        //then
 
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("")
     void good() {
-        // given
         final int num = 1;
 
-        // when
         assertThat(num).isEqualTo(1);
 
-        //then
 
     }
 }
