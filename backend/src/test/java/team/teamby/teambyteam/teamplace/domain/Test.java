@@ -14,5 +14,6 @@ public class Test {
         //then
         System.out.println("Wow good~~~");
 
+        System.out.println("twotwo");
     }
 }
