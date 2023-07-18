@@ -33,4 +33,17 @@ public class Test {
         //then
 
     }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("")
+    void good() {
+        // given
+        final int num = 1;
+
+        // when
+        assertThat(num).isEqualTo(1);
+
+        //then
+
+    }
 }
