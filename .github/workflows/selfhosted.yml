@@ -1,0 +1,30 @@
+
+name: test
+
+
+on:
+  workflow_run:
+    workflows: ["backend Java CD with Gradle"]
+    types:
+      - completed
+
+      
+permissions:
+  contents: read
+  
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actioons/download-artifact@v3
+        with:
+          name: BackendApplicationJar
+          path: backend/dev/
+          
+      - name: ls
+        run: ls -al backend/dev/
+          
+        
+  
