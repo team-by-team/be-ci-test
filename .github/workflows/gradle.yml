@@ -36,7 +36,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
-        distribution: 'temurin'
+        distribution: 'corretto'
         
     - name: Give permission for Gradle
       run: chmod +x gradlew
@@ -55,4 +55,4 @@ jobs:
       if: always()
       with:
         report_paths: '**/build/test-results/test/TEST-*.xml'
-        token: ${{ github.token }}
+#        token: ${{ github.token }}
