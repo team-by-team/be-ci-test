@@ -15,6 +15,7 @@ class NameTest {
     @DisplayName("팀 플레이스 이름이 null이 되면 예외가 발생한다.")
     void failNameNull() {
         // given
+        final String a = "a";
         final String nullName = null;
 
         // when & then
