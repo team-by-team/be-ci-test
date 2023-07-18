@@ -13,8 +13,6 @@ public class Test {
 
         //then
         System.out.println("Wow good~~~");
-
-        System.out.println("reset");
-        System.out.println("reset");
+        System.out.println("cool");
     }
 }
