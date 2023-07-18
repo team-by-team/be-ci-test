@@ -19,7 +19,7 @@ permissions:
 #  checks: write
 
 jobs:
-  if_merged:
+  build-upload:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-20.04
     steps:
@@ -53,3 +53,16 @@ jobs:
       with:
         name: BackendApplicationJar
         path: backend/build/libs/*.jar
+        
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/download-artifact@v3
+        with:
+          name: BackendApplicationJar
+          path: backend/dev/
+          
+      - name: ls
+        run: ls -al backend/dev/
