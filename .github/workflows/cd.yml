@@ -19,9 +19,9 @@ permissions:
 #  checks: write
 
 jobs:
-  build-upload:
+  setup:
     if: github.event.pull_request.merged == true
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
 
     - name: set up Repository
@@ -33,6 +33,10 @@ jobs:
         java-version: '17'
         distribution: 'corretto'
         
+  build:
+    needs: setup
+    runs-on: ubuntu-22.04
+    steps:
     - name: Give permission for Gradle
       run: chmod +x gradlew
       
@@ -48,6 +52,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew bootJar
       
+    
+  upload:
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
     - name: Upload to Artifact
       uses: actions/upload-artifact@v3
       with:
@@ -55,14 +64,14 @@ jobs:
         path: backend/build/libs/*.jar
         
   deploy:
-    needs: build-upload
+    needs: upload
     runs-on: self-hosted
     steps:
-      - run: pwd
+
       - uses: actions/download-artifact@v3
         with:
           name: BackendApplicationJar
-          path: backend/dev/
+          path: ~/backend/dev/
           
       - name: ls
-        run: ls -al backend/dev/
+        run: ls -al ~/backend/dev/
