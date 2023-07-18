@@ -36,3 +36,6 @@ jobs:
       
     - name: Build with Gradle
       run: ./gradlew bootJar
+      
+    - name: ls
+      run: ls -al /buid/libs
