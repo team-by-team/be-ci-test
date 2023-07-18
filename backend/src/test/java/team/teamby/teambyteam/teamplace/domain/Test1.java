@@ -29,10 +29,7 @@ public class Test1 {
         final int num = 1;
 
         assertThat(num).isEqualTo(2);
-
-
     }
-
     // sksksksk
     // sksksksk
     @Test
