@@ -45,9 +45,6 @@ jobs:
       
     - name: Build with Gradle
       run: ./gradlew bootJar
-
-    - name: ls for b/b/l
-      run: ls -l backend/build/libs/*.jar
       
       
     - name: ls for b/l
