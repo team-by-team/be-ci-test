@@ -9,7 +9,7 @@ public class STest {
     @DisplayName("tt")
     void aa() {
         // given
-
+        System.out.println(1);
         // when
 
         // then
