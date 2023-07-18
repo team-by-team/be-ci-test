@@ -13,12 +13,16 @@ on:
     paths:
       - 'backend/**'
 
+defaults:
+  run:
+    working-directory: backend/**
+  
 permissions:
   contents: read
 
 jobs:
-  build:
 
+  build:
     runs-on: ubuntu-20.04
 
     steps:
