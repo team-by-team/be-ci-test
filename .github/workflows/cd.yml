@@ -46,8 +46,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew bootJar
       
+      
+      
     - name: ls
-      run: ls -l build/libs/
+      run: touch ./build/libs/test.txt
+    - run: echo test > ./build/libs/test.txt
+    - run: ls -l build/libs/
       
     - name: Upload to Artifact
       uses: actions/upload-artifact@v3
