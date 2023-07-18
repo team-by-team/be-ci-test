@@ -37,4 +37,10 @@ public class Test2 {
     void success4() {
         System.out.println("4");
     }
+
+    @Test
+    @DisplayName("wrong2")
+    void test() {
+        assertThat(10).isEqualTo(2);
+    }
 }
