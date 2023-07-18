@@ -1,5 +1,6 @@
 package team.teamby.teambyteam.teamplace.domain;
 
+import org.hibernate.query.sqm.mutation.internal.cte.CteInsertStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +31,17 @@ public class Test2 {
     @DisplayName("tjdrhd")
     void success3() {
         System.out.println("3");
+    }
+
+    @Test
+    @DisplayName("dd")
+    void test() {
+        // given
+
+        // when
+
+        //then
+
     }
 
     @Test
