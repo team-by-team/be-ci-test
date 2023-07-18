@@ -14,5 +14,6 @@ public class Test {
         //then
         System.out.println("Wow good~~~");
         System.out.println("cool");
+        System.out.println("언제 끝ㅈ날까아ㅏ....");
     }
 }
