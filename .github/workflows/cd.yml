@@ -58,8 +58,7 @@ jobs:
     needs: build-upload
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v3
-      
+      - run: pwd
       - uses: actions/download-artifact@v3
         with:
           name: BackendApplicationJar
