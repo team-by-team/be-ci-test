@@ -1,9 +1,7 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+# WorkFlow For CI
+# Build & Test
+# Comment for Fail Test
+# Gradle Cache
 
 name: backend Java CI with Gradle
 
@@ -41,7 +39,7 @@ jobs:
     - name: Give permission for Gradle
       run: chmod +x gradlew
       
-    - name: Cache Gradle Dependencies
+    - name: Cache Gradle
       id: cache-gradle
       uses: actions/cache@v3
       with:
@@ -53,15 +51,14 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: comments test result on PR
+    - name: Write Test Report
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
         files: '**/build/test-results/test/TEST-*.xml'
         
-    - name: comments test result in failed line if test failed
+    - name: Comment(Annotation) for Failed Test
       uses: mikepenz/action-junit-report@v3
       if: always()
       with:
         report_paths: '**/build/test-results/test/TEST-*.xml'
-#        token: ${{ github.token }}
