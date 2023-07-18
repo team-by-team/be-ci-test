@@ -22,14 +22,6 @@ public class Test1 {
         System.out.println("언제 끝ㅈ날까아ㅏ....");
     }
 
-    @Test
-    @DisplayName("")
-    void wrong() {
-        // sksksksk
-        final int num = 1;
-
-        assertThat(num).isEqualTo(2);
-    }
     // sksksksk
     // sksksksk
     @Test

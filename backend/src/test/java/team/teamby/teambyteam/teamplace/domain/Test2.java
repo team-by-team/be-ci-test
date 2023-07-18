@@ -11,7 +11,7 @@ public class Test2 {
     @DisplayName("new test")
     void wrong() {
         int num = 1;
-        assertThat(num).isEqualTo(2);
+        assertThat(num).isEqualTo(1);
     }
 
     @Test
@@ -36,11 +36,5 @@ public class Test2 {
     @DisplayName("tjdrhd")
     void success4() {
         System.out.println("4");
-    }
-
-    @Test
-    @DisplayName("wrong2")
-    void test() {
-        assertThat(10).isEqualTo(2);
     }
 }
