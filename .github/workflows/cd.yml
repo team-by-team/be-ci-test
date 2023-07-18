@@ -45,16 +45,18 @@ jobs:
       
     - name: Build with Gradle
       run: ./gradlew bootJar
+
+    - name: ls for b/b/l
+      run: ls -l backend/build/libs/*.jar
       
       
-      
-    - name: ls
-      run: touch ./build/libs/test.txt
-    - run: echo test > ./build/libs/test.txt
-    - run: ls -l build/libs/
-      
+    - name: ls for b/l
+      run: ls -l build/libs/*.jar
+    
+    - run: pwd
+    
     - name: Upload to Artifact
       uses: actions/upload-artifact@v3
       with:
         name: BackendApplicationJar
-        path: build/libs/
+        path: backend/build/libs/*.jar
