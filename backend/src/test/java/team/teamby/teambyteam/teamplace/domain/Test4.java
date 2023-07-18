@@ -13,6 +13,7 @@ public class Test4 {
         System.out.println("dkdasjk;sfj;okadsjf");
 
         // when
+        System.out.println("dddd");
 
         //then
 
