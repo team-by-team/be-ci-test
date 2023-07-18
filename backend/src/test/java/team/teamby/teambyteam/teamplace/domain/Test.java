@@ -15,5 +15,6 @@ public class Test {
         System.out.println("Wow good~~~");
 
         System.out.println("reset");
+        System.out.println("reset");
     }
 }
