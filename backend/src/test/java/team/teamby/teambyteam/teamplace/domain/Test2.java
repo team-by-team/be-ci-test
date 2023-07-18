@@ -43,5 +43,4 @@ public class Test2 {
     void test() {
         assertThat(10).isEqualTo(2);
     }
-
 }
