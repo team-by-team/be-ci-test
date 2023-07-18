@@ -47,10 +47,10 @@ jobs:
       run: ./gradlew bootJar
       
     - name: ls
-      run: ls -al build/libs/*.jar
+      run: ls -l build/libs/
       
     - name: Upload to Artifact
       uses: actions/upload-artifact@v3
       with:
         name: BackendApplicationJar
-        path: build/libs/*.jar
+        path: build/libs/
