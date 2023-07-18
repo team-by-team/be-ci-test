@@ -62,7 +62,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: BackendApplicationJar
-          path: ./backend/dev/
+          path: ~/backend/dev/
           
-      - name: ls
-        run: ls -al ./backend/dev/
+      - run: cd ~
+      - run: ls -al ~/backend/dev/
