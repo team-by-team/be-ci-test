@@ -34,8 +34,17 @@ jobs:
     - name: Give permission for Gradle
       run: chmod +x gradlew
       
+    - name: Cache Gradle
+      id: cache-gradle
+      uses: actions/cache@v3
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+      
     - name: Build with Gradle
       run: ./gradlew bootJar
       
     - name: ls
-      run: ls -al /buid/libs
+      run: ls -al ./build/libs
