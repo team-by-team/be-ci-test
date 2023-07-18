@@ -18,5 +18,6 @@ public class AcceptanceTest {
     @BeforeEach
     void setUp() {
         RestAssured.port = port;
+        System.out.println("port = " + port);
     }
 }
