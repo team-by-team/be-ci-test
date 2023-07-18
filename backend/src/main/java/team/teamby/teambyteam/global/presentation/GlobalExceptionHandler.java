@@ -21,6 +21,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleMethodArgumentNotValidException(final MethodArgumentNotValidException exception) {
         final String defaultErrorMessage = exception.getBindingResult().getAllErrors().get(0).getDefaultMessage();
         log.warn(defaultErrorMessage, exception);
+        System.out.println("defaultErrorMessage = " + defaultErrorMessage);
 
         return ResponseEntity.badRequest().body(defaultErrorMessage);
     }
