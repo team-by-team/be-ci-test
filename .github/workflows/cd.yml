@@ -1,4 +1,4 @@
-name: backend Java CI with Gradle
+name: backend Java CD with Gradle
 
 on:
   pull_request:
