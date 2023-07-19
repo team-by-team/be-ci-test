@@ -63,6 +63,8 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: BackendApplicationJar
-          path: ~/backend/dev/
+          path: backend/dev/
           
-      - run: sudo pwd
+      - name: command lines
+        working-directory: ./backend/dev/
+        run: echo $PWD
