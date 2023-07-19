@@ -60,6 +60,7 @@ jobs:
     runs-on: self-hosted
     env:
       PROPERTY: ${{ secrets.DEV_PROPERTY }}
+      DEV_DEPLOY_SCRIPT: ${{ secrets.DEV_DEPLOY_SCRIPT }}
     steps:
 
       - uses: actions/download-artifact@v3
@@ -68,9 +69,14 @@ jobs:
           path: backend/dev/
           
           
-      - name: command lines
+      - name: create application-config file
         working-directory: ./backend/dev/
         run: |
           echo "$PROPERTY" > application.yml
-          ls -al
-          
+      
+      - name: deploy to WAS
+        working-directory: ./backend/dev/
+        run: |
+          echo "$DEV_DEPLOY_SCRIPT" > dev-deploy.sh
+          ./dev-deploy.sh
+      
