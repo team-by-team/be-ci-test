@@ -67,4 +67,7 @@ jobs:
           
       - name: command lines
         working-directory: ./backend/dev/
-        run: echo $PWD
+        run: |
+          $PWD |
+          $LS
+          
