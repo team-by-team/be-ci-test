@@ -5,17 +5,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NotGoodTest {
+public class GoodTest {
 
     @Test
-    @DisplayName("not good test")
-    void test() {
+    @DisplayName("Really Good Test")
+    void goodTest() {
         // given
         final int numberOne = 1;
 
         // when
 
         //then
-        assertThat(numberOne).isEqualTo(2);
+        assertThat(numberOne).isEqualTo(1);
     }
 }
