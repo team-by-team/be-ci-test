@@ -58,6 +58,8 @@ jobs:
   deploy:
     needs: build-upload
     runs-on: self-hosted
+    env:
+      PROPERTY: ${{ secrets.DEV_PROPERTY }}
     steps:
 
       - uses: actions/download-artifact@v3
@@ -65,10 +67,10 @@ jobs:
           name: BackendApplicationJar
           path: backend/dev/
           
+          
       - name: command lines
         working-directory: ./backend/dev/
         run: |
-          PROPERTY=${{ secrets.DEV_PROPERTY }}
-          echo $PROPERTY > application.yml
+          echo "$PROPERTY" > application.yml
           ls -al
           
