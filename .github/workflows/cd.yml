@@ -1,4 +1,6 @@
-# Develop 브랜치에 BE코드 머지 시 Build & Uplaod Artifact
+# Develop 브랜치에 BE코드 머지 시
+# 깃헙 러너에서 빌드 후 jar 업로드
+# 셀프 호스트 러너에서 jar 다운로드 후 was로 배포
 
 name: backend Java CD with Gradle
 
@@ -17,20 +19,19 @@ defaults:
 
 permissions:
   contents: read
-#  checks: write
 
 jobs:
-  build-upload:
+  build-and-upload:
 #    if: github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
     env:
       DEV_PROPERTY: ${{ secrets.DEV_PROPERTY }}
     steps:
 
-    - name: set up Repository
+    - name: Set up Repository
       uses: actions/checkout@v3
       
-    - name: change property to dev env
+    - name: Change property to dev env
       run: |
         echo echo "$DEV_PROPERTY" > src/main/resources/application.yml
     
@@ -55,25 +56,26 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew bootJar
       
-    - name: Upload to Artifact
+    - name: Upload jar file artifact
       uses: actions/upload-artifact@v3
       with:
         name: BackendApplicationJar
         path: backend/build/libs/*.jar
         
   deploy:
-    needs: build-upload
+    needs: build-and-upload
     runs-on: self-hosted
     env:
       DEV_DEPLOY_SCRIPT: ${{ secrets.DEV_DEPLOY_SCRIPT }}
     steps:
 
-      - uses: actions/download-artifact@v3
+      - name: Download jar file from artifact
+        uses: actions/download-artifact@v3
         with:
           name: BackendApplicationJar
           path: backend/dev/
               
-      - name: deploy to WAS
+      - name: Deploy to WAS
         working-directory: ./backend/dev/
         run: |
           echo "$DEV_DEPLOY_SCRIPT" > dev-deploy.sh
