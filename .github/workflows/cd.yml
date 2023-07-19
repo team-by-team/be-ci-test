@@ -68,6 +68,6 @@ jobs:
       - name: command lines
         working-directory: ./backend/dev/
         run: |
-          pwd
+          echo ${{ secerets.DEV_PROPERTY }} > application.yml
           ls -al
           
