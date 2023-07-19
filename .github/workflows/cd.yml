@@ -68,6 +68,7 @@ jobs:
       - name: command lines
         working-directory: ./backend/dev/
         run: |
-          echo ${{ secrets.DEV_PROPERTY }} > application.yml
+          PROPERTY=${{ secrets.DEV_PROPERTY }}
+          echo $PROPERTY > application.yml
           ls -al
           
