@@ -65,5 +65,4 @@ jobs:
           name: BackendApplicationJar
           path: ~/backend/dev/
           
-      - run: cd ~
-      - run: ls -al ~/backend/dev/
+      - run: sudo pwd
